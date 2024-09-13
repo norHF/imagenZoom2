@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='utf-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Meta para responsividad -->
+    <title>ZOOM IMAGEN</title>
+    <style>
+        /* styles unrelated to zoom */
+        * {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el tamaño total */
+        }
+
+        body {
+            text-align: center; /* Esto centrará el contenido dentro del body */
+            font-family: sans-serif; /* Añadir fuente general */
+        }
+
+        header {
+            background-color: #f1f1f1;
+            padding: 40px 0;
+        }
+
+        p {
+            position: absolute;
+            top: 3px;
+            right: 28px;
+            color: #555;
+            font: bold 13px/1 sans-serif;
+        }
+
+        .zoom {
+            display: inline-block;
+            position: relative;
+            text-align: center; 
+            margin: 40px 0;
+            border: 1px solid gray;
+            overflow: hidden; /* Asegura que el contenido que desborda no aparezca */
+        }
+
+        .zoom img {
+            display: block;
+            border: 1px solid gray;
+            max-width: 100%; /* Permite que la imagen escale con el contenedor */
+            height: auto; /* Mantiene la relación de aspecto */
+            margin: auto; /* Asegura que la imagen se centre dentro del contenedor */
+        }
+
+        .zoom img::selection {
+            background-color: transparent;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px 0; 
+            }
+            .zoom {
+                margin: 20px 0; 
+            }
+        }
+    </style>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+    <script src='jquery.zoom.js'></script>
+    <script>
+        $(document).ready(function(){
+            $('#ex1').zoom();
+        });
+    </script>
+</head>
+<body>
+    <header></header>
+    <span class='zoom' id='ex1'>
+        <img src='CUPS1.jpg' alt='factura' />
+    </span>
+    <header></header>
+</body>
+</html>
